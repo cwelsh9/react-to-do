@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 class ToDo extends Component {
+  deleteToDo(item, index) {
+    this.props.deleteToDo(item, index);
+  }
+
   render() {
     return (
       <li>

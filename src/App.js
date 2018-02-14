@@ -12,6 +12,15 @@ class App extends Component {
       ],
       newTodoDescription: ''
     };
+    this.deleteToDo = this.deleteToDo.bind(this);
+  }
+
+  deleteToDo(name, index){
+    let todos = this.state.todos.slice();
+    todos.splice(index, 1);
+    this.setState({
+      todos
+    });
   }
 
   handleChange(e) {
@@ -43,6 +52,7 @@ class App extends Component {
         <input type="text" value={ this.state.newTodoDescription } onChange={ (e) => this.handleChange(e) }/>
         <input type="submit" />
       </form>
+      <ToDo todos={this.state.todos} deleteToDo={this.deleteToDo}/>
       </div>
     );
   }
